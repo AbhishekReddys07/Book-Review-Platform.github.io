@@ -9,13 +9,12 @@
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "vite",
     "dev:backend": "nodemon server/index.js",
-    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
 
    
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+  "build": "vite build",
+  "deploy": "npm run build && cp -r dist/* . && git add . && git commit -m 'Deploy' && git push"
   },
 
   "dependencies": {
